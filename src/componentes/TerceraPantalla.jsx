@@ -1,12 +1,12 @@
 import React from 'react'
 import cerrar from '../img/tacha.png'
 import { useState } from 'react'
-//import Error from './Error'
+import Error from './Error'
 
 const TerceraPantalla = ({setTerceraPantalla, animarModal, setAnimarModal, guardarGasto}) => {
 
     //en los use state se guarda el valor de los inputs y su valor de inicio es vacio 
-    //const [error, setError] = useState('')
+    const [error, setError] = useState('')
     const [nombreGasto, setNombreGasto]= useState('')
     const [cantidad, setCantidad]= useState('')
     const [categoria, setCategoria]= useState('')
@@ -21,7 +21,15 @@ const TerceraPantalla = ({setTerceraPantalla, animarModal, setAnimarModal, guard
 
     const validacionFormulario = (e)=>{// validacion de formulario por evento preventDefault, para prevenir la accion de enviar formulario
         e.preventDefault()
-        console.log('enviando formulario....')
+        if([nombreGasto, cantidad, categoria].includes('')){// aqui se valida si no hay nada con el includes
+            setError('Todos los campos son obligatorios')
+
+            setTimeout(()=>{
+                setError('');
+            }, 3000)
+
+            return
+        } 
     }
 
 
@@ -46,6 +54,8 @@ const TerceraPantalla = ({setTerceraPantalla, animarModal, setAnimarModal, guard
                 <span id='span1'></span>
                 <span id='span2'></span>
              Nuevo Gasto</legend>
+
+             {error && <Error>{error}</Error>}
             
 
             
