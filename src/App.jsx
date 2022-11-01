@@ -2,13 +2,14 @@ import { useState } from "react";
 import Header from "./componentes/Header";
 import iconoNG from "./img/agregar2.png";
 import TerceraPantalla from "./componentes/TerceraPantalla";
-//import {GenerarId} from "./componentes/GenerarId";
+import GastoId from "./componentes/GastoId";
 
 function App() {
   const [presupuesto, setPresupuesto] = useState(0);
   const [valido, setValido] = useState(false);
   const [terceraPantalla, setTerceraPantalla] = useState(false);
   const [animarModal, setAnimarModal] = useState(false)
+  const [gastos, setGastos]=useState([]);
 
 
   const nuevoGastoTP = () => {
@@ -18,7 +19,17 @@ function App() {
       setAnimarModal(true)
     }, 500)// al clickear la imagen de + se activa la tercera pantalla y su valor de inputs se inicia en .5s, con valor en ''
 
-  };
+  }
+
+  const guardandoGastos=(gasto)=>{
+    gasto.id=GastoId();
+    setGastos([...gastos, gasto])//se crea una copia del arreglo que viene desde la tercera pantalla [nombreGastos, categoria, cantidad]
+  
+    setAnimarModal(false)
+    setTimeout(()=>{
+        setTerceraPantalla(false)
+    },500)
+  }
 
   return (
     <div>
@@ -44,6 +55,7 @@ function App() {
         setTerceraPantalla={setTerceraPantalla}
         animarModal= {animarModal} 
         setAnimarModal={setAnimarModal}
+        guardandoGastos={guardandoGastos}
       />
       )}
     </div>

@@ -3,7 +3,7 @@ import cerrar from '../img/tacha.png'
 import { useState } from 'react'
 import Error from './Error'
 
-const TerceraPantalla = ({setTerceraPantalla, animarModal, setAnimarModal, guardarGasto}) => {
+const TerceraPantalla = ({setTerceraPantalla, animarModal, setAnimarModal, guardandoGastos}) => {
 
     //en los use state se guarda el valor de los inputs y su valor de inicio es vacio 
     const [error, setError] = useState('')
@@ -30,6 +30,8 @@ const TerceraPantalla = ({setTerceraPantalla, animarModal, setAnimarModal, guard
 
             return
         } 
+
+        guardandoGastos({nombreGasto, cantidad, categoria})//se crea un objeto// hay que tratar que ese guardado sea json
     }
 
 
