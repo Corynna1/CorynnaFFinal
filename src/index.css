@@ -1,0 +1,433 @@
+
+header {
+    background-color: #5E35B1;/*vuetify colors*/
+    
+}
+
+header h1 {
+    padding: 3rem 0;
+    margin: 0;
+    color: white;
+    text-align: center;
+    text-shadow: 1px 2px rgb(148, 70, 212);
+}
+h1 {
+    font-size: 4rem;
+    font-weight: 900;
+}
+
+.contenedor-presupuesto {
+    margin-top: -5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(5rem);
+    background-color: white;
+    padding: 4rem;
+    border-radius: 50px;
+    box-shadow: 1px 2px rgb(189, 194, 195);
+}
+
+.contenedor-presupuesto span{
+    font-weight: 900;
+    color:#7E57C2;
+    
+}
+
+.contenido-presupuesto {
+    width: 100%;
+    
+}
+.contenido-presupuesto p {
+    font-weight: 400;
+    color: #454444;
+    font-size: 2.4rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .contenido-presupuesto p {
+        text-align: left;
+    }
+}
+.contenido-presupuesto p.negativo,
+.contenido-presupuesto p.negativo span {
+    color: red;
+}
+
+
+body {
+    font-size: 1.6rem;
+    font-family: 'Raleway', sans-serif;
+    background: color #bbd1ea;;
+}
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.fijar {
+    overflow: hidden;
+    height: 100vh;
+}
+
+
+h2 {
+    font-size: 3rem;
+}
+
+
+.error{
+
+    background-color:  red;
+    color: white;
+    text-align: center;
+    font: bold;
+    padding: 10px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+
+
+.formulario {
+    width: 95%;
+    margin: 0 auto;
+    padding: 10rem 0;
+}
+@media (min-width: 768px) {
+    .formulario {
+        padding: 5rem 0;
+        width: 60rem;
+    }
+}
+.formulario legend {
+    font-size: 3.6rem;
+    text-align: center;
+    display: block;
+    color: white;
+    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid blueviolet;
+}
+
+
+.formulario .campo {
+    display: grid;
+    margin-bottom: 2rem;
+}
+
+.formulario label {
+    color: #651FFF;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.formulario input[type="text"],
+.formulario input[type="number"] {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    border: none;
+    flex: 1;
+    font-size: 1.6rem;
+}
+.formulario input[type="submit"] {
+    background:linear-gradient(90deg, transparent, blueviolet);
+    border: none;
+    padding: 1rem;
+    text-align: center;
+    margin-top: 2rem;
+    color: white;
+    font-weight: 900;
+    font-size: 1.9rem;
+    width: 100%;
+    transition: 0.2s;
+    border: 1px solid #7E57C2;
+    border-radius: 5px;
+}
+@media (min-width: 768px) {
+    .formulario input[type="submit"] {
+        display: block;
+        padding: 1rem 5rem;
+    }
+}
+.formulario input[type="submit"]:hover {
+    background-color: #64B5F6;
+    cursor: pointer;
+    box-shadow: 0 0 10px #64B5F6, 0 0 20px #64B5F6, 0 0 20px #64B5F6;
+    transition-delay: 0.25s;
+    border: 1px solid white;
+}
+
+.formulario select {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    text-align: center;
+    background-color: gray;
+}
+
+.alerta {
+    padding: 2rem 5rem;
+    max-width: 60rem;
+    margin: 2rem auto 2rem auto;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    text-align: center;
+}
+.alerta.error {
+    background-color: var(--blanco);
+    border-left: 5px solid #b91c1c;
+    color: #b91c1c;
+}
+
+
+.contenedor {
+    width: 90%;
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.dos-columnas {
+    flex-direction: column;
+}
+.dos-columnas :first-child {
+    margin-bottom: 4rem;
+}
+@media (min-width: 768px) {
+    .dos-columnas {
+        flex-direction: row;
+        align-items: center;
+        gap: 4rem;
+    }
+    .dos-columnas > div {
+        width: 50%;
+    }
+    .dos-columnas :first-child {
+        margin-bottom: 0;
+    }
+}
+.formulario input[type="text"].nuevo-presupuesto, 
+.formulario input[type="number"].nuevo-presupuesto {
+    font-size: 2.8rem;
+    text-align: center;
+}
+
+.contenedor-presupuesto svg {
+    width: 25rem;
+}
+
+
+
+.reset-app {
+    border: none;
+    background-color: #db2777;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+    color: var(--blanco);
+    text-transform: uppercase;
+    font-weight: 900;
+    border-radius: 1rem;
+    transition-property: background-color;
+    transition-duration: 300ms;
+}
+.reset-app:hover {
+    background-color: #c71465;
+    cursor: pointer;
+}
+
+main {
+    padding-top: 10rem;
+}
+
+.filtros .campo {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.filtros label {
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgb(72, 70, 70);
+}
+.filtros select {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    text-align: center;
+    background-color: gray;
+}
+
+.listado-gastos {
+    margin-top: 5rem;
+}
+.listado-gastos h2 {
+    color: rgb(72, 70, 70);
+    font-weight: 900;
+}
+.no-gastos {
+    text-align: center;
+    font-size: 2.2rem;
+}
+
+.gasto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.cantidad-gasto {
+    font-size: 2.4rem;
+    color:rgb(85, 83, 83);
+    font-weight: 900;
+}
+
+.contenido-gasto {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.contenido-gasto img {
+    width: 10rem;
+}
+
+.descripcion-gasto p {
+    margin: 0 0 0.3rem 0;
+}
+.descripcion-gasto .categoria {
+    color: gray;
+    font-size: 1.6rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+.descripcion-gasto p {
+    margin-bottom: 1rem;
+}
+.descripcion-gasto .nombre-gasto {
+    color: gray;
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+.descripcion-gasto .nombre-gasto:hover {
+    cursor: pointer;
+}
+.descripcion-gasto .fecha-gasto {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: gray;
+}
+.descripcion-gasto .fecha-gasto span {
+    font-weight: 400;
+}
+
+.nuevo-gasto {
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
+}
+
+.nuevo-gasto img {
+    width: 5rem;
+}
+.nuevo-gasto img:hover {
+    cursor: pointer;
+}
+
+.modal {
+    position: absolute;
+    background-color: rgb(0 0 0 / 0.92);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.modal .cerrar-modal {
+    position: absolute;
+    right: 3rem;
+    top: 3rem;
+    width: 3rem;
+    height: 3rem;
+}
+.modal .cerrar-modal img {
+    width: 100%;
+}
+
+.modal .formulario {
+    max-width: 80rem;
+    width: 40rem;
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in;
+    opacity: 0;
+}
+.modal label {
+    color: rgb(218, 218, 218);
+}
+body .modal {
+    overflow: hidden;
+}
+
+.modal .formulario.animar {
+    position: relative;
+    opacity: 1;
+}
+
+.modal .formulario.cerrar {
+    opacity: 0;
+}
+
+.modal label {
+    text-align: left;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+    font-size: 1rem !important;
+}
+
+/*** SWIPE LIST OVERRIDES **/
+.swipe-action__leading {
+    background-color: blue;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.swipe-action__trailing {
+    background-color: #db2777;
+    margin-bottom: 2rem;
+    color:white;
+}
+
+.swipeable-list .swipe-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.4rem;
+    text-align: right;
+}
+
+.imgh{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.imgh img{
+    width: 300px;
+    height: 200px;
+    margin: 20px 150px 20px; 
+}
