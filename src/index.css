@@ -6,7 +6,7 @@ header {
 
 header h1 {
     padding: 3rem 0;
-    margin: 0;
+    margin: 20px;
     color: white;
     text-align: center;
     text-shadow: 1px 2px rgb(148, 70, 212);
@@ -17,15 +17,15 @@ h1 {
 }
 
 .contenedor-presupuesto {
-    margin-top: -5rem;
+    margin-top: -4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     transform: translateY(5rem);
     background-color: white;
-    padding: 4rem;
+    padding: 3rem;
     border-radius: 50px;
-    box-shadow: 1px 2px rgb(189, 194, 195);
+    box-shadow: 1px 2px rgb(149, 152, 152);
 }
 
 .contenedor-presupuesto span{
@@ -41,7 +41,7 @@ h1 {
 .contenido-presupuesto p {
     font-weight: 400;
     color: #454444;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     text-align: center;
 }
 
@@ -55,11 +55,9 @@ h1 {
     color: red;
 }
 
-
 body {
     font-size: 1.6rem;
     font-family: 'Raleway', sans-serif;
-    background: color #bbd1ea;;
 }
 html {
     font-size: 62.5%;
@@ -150,7 +148,6 @@ h2 {
     width: 100%;
     transition: 0.2s;
     border: 1px solid #7E57C2;
-    border-radius: 5px;
 }
 @media (min-width: 768px) {
     .formulario input[type="submit"] {
@@ -273,8 +270,10 @@ main {
     margin-top: 5rem;
 }
 .listado-gastos h2 {
-    color: rgb(72, 70, 70);
+    margin-top: 100px;
+    color: #7E57C2;
     font-weight: 900;
+    text-align: center;
 }
 .no-gastos {
     text-align: center;
@@ -306,8 +305,11 @@ main {
     width: 10rem;
 }
 
-.descripcion-gasto p {
-    margin: 0 0 0.3rem 0;
+.descripcion-gasto {
+    padding: 10px 10px 10px 500px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    box-shadow: 1px 2px rgb(17, 17, 17);
 }
 .descripcion-gasto .categoria {
     color: gray;
@@ -320,7 +322,7 @@ main {
 }
 .descripcion-gasto .nombre-gasto {
     color: gray;
-    font-size: 2.4rem;
+    font-size: 20px;
     font-weight: 700;
 }
 .descripcion-gasto .nombre-gasto:hover {
@@ -337,8 +339,11 @@ main {
 
 .nuevo-gasto {
     position: fixed;
-    bottom: 5rem;
+    top: 20px;
     right: 5rem;
+    text-align: center;
+    color: #42A5F5;
+    text-shadow: 1px 2px rgb(29, 29, 29);
 }
 
 .nuevo-gasto img {
@@ -350,7 +355,7 @@ main {
 
 .modal {
     position: absolute;
-    background-color: rgb(0 0 0 / 0.92);
+    background-color: rgba(0, 0, 0, 0.92);
     top: 0;
     left: 0;
     right: 0;

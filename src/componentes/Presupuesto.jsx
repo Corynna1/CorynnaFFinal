@@ -9,7 +9,7 @@ const Presupuesto = ({ presupuesto, setPresupuesto, setValido }) => {
       Number(presupuesto <= 0) ||
       presupuesto === ""
     ) {
-      swal("Error", "Esto no es un numero!", "error");
+      ("Error", "Esto no es un numero!", "error");
     } else {
       swal(
         "Bienvenid@ (ᵔᴥᵔ)",

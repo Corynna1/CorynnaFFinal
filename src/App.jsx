@@ -3,12 +3,13 @@ import Header from "./componentes/Header";
 import iconoNG from "./img/agregar2.png";
 import TerceraPantalla from "./componentes/TerceraPantalla";
 import GastoId from "./componentes/GastoId";
+import GastoLista from "./componentes/GastoLista";
 
 function App() {
   const [presupuesto, setPresupuesto] = useState(0);
   const [valido, setValido] = useState(false);
   const [terceraPantalla, setTerceraPantalla] = useState(false);
-  const [animarModal, setAnimarModal] = useState(false)
+  const [cambioPantalla, setCambioPantalla] = useState(false)
   const [gastos, setGastos]=useState([]);
 
 
@@ -16,7 +17,7 @@ function App() {
     setTerceraPantalla(true);//se inicia en false para que cuando se clickee cambie a true y aparezca la tercera pantalla 
 
     setTimeout(()=>{
-      setAnimarModal(true)
+      setCambioPantalla(true)
     }, 500)// al clickear la imagen de + se activa la tercera pantalla y su valor de inputs se inicia en .5s, con valor en ''
 
   }
@@ -25,7 +26,7 @@ function App() {
     gasto.id=GastoId();
     setGastos([...gastos, gasto])//se crea una copia del arreglo que viene desde la tercera pantalla [nombreGastos, categoria, cantidad]
   
-    setAnimarModal(false)
+    setCambioPantalla(false)
     setTimeout(()=>{
         setTerceraPantalla(false)
     },500)
@@ -41,23 +42,34 @@ function App() {
       />
 
       {valido ? (
+
+        <>
+        <div>
+          <GastoLista
+          gastos={gastos}
+          />
+
+        </div>
         <div className="nuevo-gasto">
+          <h3>Agregar Gasto</h3>
           <img
             src={iconoNG}
             alt="icono de nuevo gasto"
             onClick={nuevoGastoTP}
           />
         </div>
+        </>
       ) : null}
 
       {terceraPantalla && (
         <TerceraPantalla 
         setTerceraPantalla={setTerceraPantalla}
-        animarModal= {animarModal} 
-        setAnimarModal={setAnimarModal}
+        cambioPantalla= {cambioPantalla} 
+        setCambioPantalla={setCambioPantalla}
         guardandoGastos={guardandoGastos}
       />
       )}
+
     </div>
   );
 }

@@ -3,7 +3,7 @@ import cerrar from '../img/tacha.png'
 import { useState } from 'react'
 import Error from './Error'
 
-const TerceraPantalla = ({setTerceraPantalla, animarModal, setAnimarModal, guardandoGastos}) => {
+const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla, guardandoGastos}) => {
 
     //en los use state se guarda el valor de los inputs y su valor de inicio es vacio 
     const [error, setError] = useState('')
@@ -13,7 +13,7 @@ const TerceraPantalla = ({setTerceraPantalla, animarModal, setAnimarModal, guard
 
 
     const cerrarPantalla=()=>{// al realizar click se regresara en .5s la animacion 
-        setAnimarModal(false)
+        setCambioPantalla(false)
         setTimeout(()=>{
             setTerceraPantalla(false)
         },500)
@@ -49,7 +49,7 @@ const TerceraPantalla = ({setTerceraPantalla, animarModal, setAnimarModal, guard
 
         <form 
         onSubmit={validacionFormulario}
-        className={`formulario ${animarModal ? "animar" : ""}`}>
+        className={`formulario ${cambioPantalla ? "animar" : ""}`}>
 
 
             <legend>
