@@ -2,7 +2,7 @@ import { useState } from "react";
 import Header from "./componentes/Header";
 import iconoNG from "./img/agregar2.png";
 import TerceraPantalla from "./componentes/TerceraPantalla";
-import GastoId from "./componentes/GastoId";
+import {GastoId} from "./componentes/funciones";
 import GastoLista from "./componentes/GastoLista";
 
 function App() {
@@ -11,6 +11,10 @@ function App() {
   const [terceraPantalla, setTerceraPantalla] = useState(false);
   const [cambioPantalla, setCambioPantalla] = useState(false)
   const [gastos, setGastos]=useState([]);
+  const eliminarGasto=id=>{const gastoAct=gastos.filter(gasto=>gasto.id!==id)
+    setGastos(gastoAct)}
+  const [gastoEditado, setGastoEditado]=useState({})
+
 
 
   const nuevoGastoTP = () => {
@@ -24,6 +28,7 @@ function App() {
 
   const guardandoGastos=(gasto)=>{
     gasto.id=GastoId();
+    gasto.fecha=Date.now();
     setGastos([...gastos, gasto])//se crea una copia del arreglo que viene desde la tercera pantalla [nombreGastos, categoria, cantidad]
   
     setCambioPantalla(false)
@@ -35,6 +40,7 @@ function App() {
   return (
     <div>
       <Header
+        gastos={gastos}
         presupuesto={presupuesto}
         setPresupuesto={setPresupuesto}
         valido={valido}
@@ -47,6 +53,8 @@ function App() {
         <div>
           <GastoLista
           gastos={gastos}
+          eliminarGasto={eliminarGasto}
+          setGastoEditado={setGastoEditado}
           />
 
         </div>

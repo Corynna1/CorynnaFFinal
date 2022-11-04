@@ -5,7 +5,8 @@ import imgGastos from "../img/gastos2.png"
 import imgGastos1 from "../img/gastos1.png"
 import imgGastos2 from "../img/gastos5.png"
 
-const Header = ({presupuesto, setPresupuesto, valido, setValido}) => {
+const Header = ({presupuesto, setPresupuesto, valido, setValido, gastos}) => {
+    
     return(
         <header>
             <h1>PLANIFICADOR DE GASTOS</h1>
@@ -18,6 +19,7 @@ const Header = ({presupuesto, setPresupuesto, valido, setValido}) => {
             
             {valido ? (
                <SegundaPantalla
+               gastos={gastos}
                presupuesto={presupuesto}/>
             ):
 

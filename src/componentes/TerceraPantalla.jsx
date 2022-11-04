@@ -1,7 +1,7 @@
 import React from 'react'
 import cerrar from '../img/tacha.png'
 import { useState } from 'react'
-import Error from './Error'
+import {Error} from './funciones'
 
 const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla, guardandoGastos}) => {
 
@@ -21,7 +21,7 @@ const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla,
 
     const validacionFormulario = (e)=>{// validacion de formulario por evento preventDefault, para prevenir la accion de enviar formulario
         e.preventDefault()
-        if([nombreGasto, cantidad, categoria].includes('')){// aqui se valida si no hay nada con el includes
+        if([nombreGasto, cantidad, categoria].includes('')){// aqui se valida si no hay nada con el includes/ es similar ha realizar la accion de nombreGasto===''|| y se comparan a vacio
             setError('Todos los campos son obligatorios')
 
             setTimeout(()=>{
@@ -94,7 +94,6 @@ const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla,
                     <option value="comida">Comida</option>
                     <option value="Salud">Salud</option>
                     <option value="Suscripciones">Suscripciones</option>
-                    <option value="recibos">Recibos</option>
                     <option value="casa">Casa</option>
                     <option value="ocio">Ocio</option>
                     <option value="otro">Otro</option>

@@ -1,6 +1,25 @@
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: 'Raleway', sans-serif;
+}
+
 
 header {
-    background-color: #5E35B1;/*vuetify colors*/
+    background: url(./img/captura1.png);
+    background-size: cover;
     
 }
 
@@ -8,12 +27,15 @@ header h1 {
     padding: 3rem 0;
     margin: 20px;
     color: white;
+    font-weight: 900;
     text-align: center;
+    font-size: 4rem;
     text-shadow: 1px 2px rgb(148, 70, 212);
 }
-h1 {
-    font-size: 4rem;
-    font-weight: 900;
+
+
+h2 {/*es la grafica*/
+    font-size: 3rem;
 }
 
 .contenedor-presupuesto {
@@ -55,29 +77,6 @@ h1 {
     color: red;
 }
 
-body {
-    font-size: 1.6rem;
-    font-family: 'Raleway', sans-serif;
-}
-html {
-    font-size: 62.5%;
-    box-sizing: border-box;
-}
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
-}
-
-.fijar {
-    overflow: hidden;
-    height: 100vh;
-}
-
-
-h2 {
-    font-size: 3rem;
-}
 
 
 .error{
@@ -91,8 +90,6 @@ h2 {
     margin-bottom: 10px;
 }
 
-
-
 .formulario {
     width: 95%;
     margin: 0 auto;
@@ -100,18 +97,19 @@ h2 {
 }
 @media (min-width: 768px) {
     .formulario {
-        padding: 5rem 0;
+        padding: 4rem 0;
         width: 60rem;
     }
 }
 .formulario legend {
-    font-size: 3.6rem;
+    font-size: 3rem;
+    font-weight: 600;
     text-align: center;
     display: block;
     color: white;
-    margin-bottom: 4rem;
-    padding-bottom: 2rem;
-    border-bottom: 2px solid blueviolet;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 4px solid blueviolet;
 }
 
 
@@ -122,9 +120,8 @@ h2 {
 
 .formulario label {
     color: #651FFF;
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 2rem;
-    text-align: center;
 }
 
 .formulario input[type="text"],
@@ -132,14 +129,12 @@ h2 {
     background-color: white;
     border-radius: 1rem;
     padding: 1rem;
-    border: none;
     flex: 1;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
 }
 .formulario input[type="submit"] {
     background:linear-gradient(90deg, transparent, blueviolet);
-    border: none;
-    padding: 1rem;
+    padding: 1.8rem;
     text-align: center;
     margin-top: 2rem;
     color: white;
@@ -148,6 +143,7 @@ h2 {
     width: 100%;
     transition: 0.2s;
     border: 1px solid #7E57C2;
+    border-radius: 10px;
 }
 @media (min-width: 768px) {
     .formulario input[type="submit"] {
@@ -160,31 +156,15 @@ h2 {
     cursor: pointer;
     box-shadow: 0 0 10px #64B5F6, 0 0 20px #64B5F6, 0 0 20px #64B5F6;
     transition-delay: 0.25s;
-    border: 1px solid white;
+    border: 1px solid rgb(246, 241, 241);
 }
 
 .formulario select {
     flex: 1;
     padding: 1rem;
-    border: none;
     border-radius: 1rem;
     text-align: center;
-    background-color: gray;
-}
-
-.alerta {
-    padding: 2rem 5rem;
-    max-width: 60rem;
-    margin: 2rem auto 2rem auto;
-    font-weight: 900;
-    text-transform: uppercase;
-    font-size: 1.8rem;
-    text-align: center;
-}
-.alerta.error {
-    background-color: var(--blanco);
-    border-left: 5px solid #b91c1c;
-    color: #b91c1c;
+    background-color: white;
 }
 
 
@@ -218,12 +198,6 @@ h2 {
     font-size: 2.8rem;
     text-align: center;
 }
-
-.contenedor-presupuesto svg {
-    width: 25rem;
-}
-
-
 
 .reset-app {
     border: none;
@@ -274,54 +248,46 @@ main {
     color: #7E57C2;
     font-weight: 900;
     text-align: center;
-}
-.no-gastos {
-    text-align: center;
-    font-size: 2.2rem;
+    
 }
 
 .gasto {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content:space-around;
+    align-items:center;
     gap: 2rem;
     margin-bottom: 2rem;
     width: 100%;
 }
 
-.cantidad-gasto {
-    font-size: 2.4rem;
-    color:rgb(85, 83, 83);
-    font-weight: 900;
-}
-
 .contenido-gasto {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    border: 1px solid gray;
+    border-radius: 20px;
+    box-shadow: 1px 2px rgb(17, 17, 17);
+    
 }
 
 .contenido-gasto img {
     width: 10rem;
+    margin: 30px;
 }
 
 .descripcion-gasto {
-    padding: 10px 10px 10px 500px;
-    border: 1px solid gray;
-    border-radius: 20px;
-    box-shadow: 1px 2px rgb(17, 17, 17);
+    padding: 10px 10px 10px 100px;
+    min-width: 600px;
+   
 }
 .descripcion-gasto .categoria {
-    color: gray;
-    font-size: 1.6rem;
+    color: skyblue;
+    font-size: 2rem;
     font-weight: 900;
     text-transform: uppercase;
 }
-.descripcion-gasto p {
-    margin-bottom: 1rem;
-}
+
 .descripcion-gasto .nombre-gasto {
-    color: gray;
+    color: green;
     font-size: 20px;
     font-weight: 700;
 }
@@ -329,12 +295,15 @@ main {
     cursor: pointer;
 }
 .descripcion-gasto .fecha-gasto {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 900;
     color: gray;
 }
-.descripcion-gasto .fecha-gasto span {
-    font-weight: 400;
+.contenido-gasto .cantidad{
+    font-size: 2rem;
+    font-weight: bold;
+    color: #5E35B1;
+    padding: 0 70px 0 0;
 }
 
 .nuevo-gasto {
@@ -404,26 +373,6 @@ body .modal {
     font-size: 1rem !important;
 }
 
-/*** SWIPE LIST OVERRIDES **/
-.swipe-action__leading {
-    background-color: blue;
-    color: white;
-    margin-bottom: 2rem;
-}
-
-.swipe-action__trailing {
-    background-color: #db2777;
-    margin-bottom: 2rem;
-    color:white;
-}
-
-.swipeable-list .swipe-action {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.4rem;
-    text-align: right;
-}
 
 .imgh{
     width: 100%;
@@ -436,3 +385,32 @@ body .modal {
     height: 200px;
     margin: 20px 150px 20px; 
 }
+
+.botones{
+    display: block;
+    font-size: 1.6rem;
+    text-align: right; 
+    margin: 0 30px;
+}
+.editar{
+    padding: 12px 21px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    background-color: #BA68C8;
+    color: white;
+    border: 1px solid white;
+}
+.editar:hover{
+    background-color: #1E88E5;
+}
+.eliminar{
+    padding: 12px ;
+    border-radius: 10px;
+    background-color: #5E35B1;
+    color: white;
+    border: 1px solid white;
+}
+.eliminar:hover{
+    background-color: red;
+}
+

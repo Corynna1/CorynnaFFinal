@@ -2,6 +2,7 @@ import React from "react";
 import swal from "sweetalert";
 
 const Presupuesto = ({ presupuesto, setPresupuesto, setValido }) => {
+  
   const validar = (e) => {
     e.preventDefault();
     if (
