@@ -7,7 +7,8 @@ import suscripciones from '../img/suscribir.png'
 import casa from '../img/casa.png'
 import ocio from '../img/ocio.png'
 import otro from '../img/compras.png'
-
+import{LeadingActions, SwipeableList, SwipeableListItem, SwipeAction, TrailingActions} from'react-swipeable-list'
+import "react-swipeable-list/dist/styles.css"
 const icono ={// se crea un objeto con las imagenes para irla llamando cada que se seleccione esa categoria con icono[gasto.categoria], esa proviene de guardando gastos donde se encuentra la informacion App,jsx y TerceraPantalla.jsx donde se creo la variable categoria con state[]
 ahorro: ahorro,
 comida: comida,
@@ -18,7 +19,7 @@ ocio: ocio,
 otro:otro
 }
 
-const Gastado = ({gasto, eliminarGasto, setGasto}) => {
+const Gastado = ({gasto, eliminarGasto, setGastoEditar}) => {
 
   const {categoria, nombreGasto, fecha, id, cantidad} = gasto;
 
@@ -29,7 +30,12 @@ if(respuesta){
 }
 }
 
+
+
+
   return (
+    <SwipeableList>
+      <SwipeableListItem>
 
     <div className='gasto'>
         <div className='contenido-gasto'>
@@ -44,12 +50,14 @@ if(respuesta){
         
         <div className='botones'>
           <button className='eliminar' onClick={deleteGasto}>Eliminar</button>
-          <button className='editar'onClick={()=>setGasto(gasto)}>Editar</button>
+          <button className='editar'onClick={setGastoEditar(gasto)}>Editar</button>
         </div>
 
       
         </div> 
     </div>
+    </SwipeableListItem>
+    </SwipeableList>
   )
 }
 
