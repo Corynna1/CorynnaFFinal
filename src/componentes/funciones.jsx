@@ -21,6 +21,7 @@ export const formatoFecha =fecha=>{
     return nuevoFormatoFecha.toLocaleDateString('es-ES')
 }
 
-
+  /* const eliminarGasto=id=>{const gastoAct=gastos.filter(gasto=>gasto.id!==id)
+    setGastos(gastoAct)} */
 
 

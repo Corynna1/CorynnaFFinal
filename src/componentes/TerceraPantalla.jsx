@@ -1,19 +1,20 @@
 import React from 'react'
 import cerrar from '../img/tacha.png'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {Error} from './funciones'
 
 const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla, guardandoGastos}) => {
 
     //en los use state se guarda el valor de los inputs y su valor de inicio es vacio 
     const [error, setError] = useState('')
-    const [nombreGasto, setNombreGasto]= useState('')
+    const [nombre, setNombreGasto]= useState('')
     const [cantidad, setCantidad]= useState('')
     const [categoria, setCategoria]= useState('')
 
-
+   
     const cerrarPantalla=()=>{// al realizar click se regresara en .5s la animacion 
         setCambioPantalla(false)
+
         setTimeout(()=>{
             setTerceraPantalla(false)
         },500)
@@ -21,7 +22,7 @@ const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla,
 
     const validacionFormulario = (e)=>{// validacion de formulario por evento preventDefault, para prevenir la accion de enviar formulario
         e.preventDefault()
-        if([nombreGasto, cantidad, categoria].includes('')){// aqui se valida si no hay nada con el includes/ es similar ha realizar la accion de nombreGasto===''|| y se comparan a vacio
+        if([nombre, cantidad, categoria].includes('')){// aqui se valida si no hay nada con el includes/ es similar ha realizar la accion de nombreGasto===''|| y se comparan a vacio
             setError('Todos los campos son obligatorios')
 
             setTimeout(()=>{
@@ -31,12 +32,10 @@ const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla,
             return
         } 
 
-        guardandoGastos({nombreGasto, cantidad, categoria})//se crea un objeto// hay que tratar que ese guardado sea json
+        guardandoGastos({nombre, cantidad, categoria})//se crea un objeto// hay que tratar que ese guardado sea json
     }
 
 
-    
-    
   return (
     <div className='modal'>
         <div className='cerrar-modal'>
@@ -67,7 +66,7 @@ const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla,
                 <input type="text" 
                 placeholder='Añade El Nombre Del Gasto' 
                 id='nombre'
-                value={nombreGasto}
+                value={nombre}
                 onChange={e=> setNombreGasto(e.target.value)}/>
 
             </div>
@@ -92,8 +91,8 @@ const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla,
                     <option value="">--Seleccione--</option>
                     <option value="ahorro">Ahorro</option>
                     <option value="comida">Comida</option>
-                    <option value="Salud">Salud</option>
-                    <option value="Suscripciones">Suscripciones</option>
+                    <option value="salud">Salud</option>
+                    <option value="suscripciones">Suscripciones</option>
                     <option value="casa">Casa</option>
                     <option value="ocio">Ocio</option>
                     <option value="otro">Otro</option>
