@@ -11,9 +11,23 @@ function App() {
   const [valido, setValido] = useState(false);
   const [terceraPantalla, setTerceraPantalla] = useState(false);
   const [cambioPantalla, setCambioPantalla] = useState(false);
+  const [editando, setEditando]=useState({})
+
+
+  useEffect(()=>{
+    if(Object.keys(editando).length>0){//con Object.key te ayuda a validar si hay algo en los inputs
+      setTerceraPantalla(true)
+
+      setTimeout(() => {
+        setCambioPantalla(true);
+        }, 500);
+    }
+    }, [editando])//Al editar, usando useEffect se regresan los imputs a llenos cuando se clickea editar
+
 
   const nuevoGastoTP = () => {
     setTerceraPantalla(true); //se inicia en false para que cuando se clickee cambie a true y aparezca la tercera pantalla
+    setEditando({})
     setTimeout(() => {
     setCambioPantalla(true);
     }, 500);
@@ -43,7 +57,8 @@ function App() {
       {valido ? (
         <>
           <div>
-            <GastoLista gastos={gastos} />
+            <GastoLista gastos={gastos}
+            setEditando={setEditando} />
           </div>
           <div className="nuevo-gasto">
             <h3>Agregar Gasto</h3>
@@ -62,6 +77,7 @@ function App() {
           cambioPantalla={cambioPantalla}
           setCambioPantalla={setCambioPantalla}
           guardandoGastos={guardandoGastos}
+          editando={editando}
         />
       )}
     </div>

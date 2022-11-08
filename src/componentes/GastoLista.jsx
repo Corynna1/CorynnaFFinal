@@ -1,7 +1,7 @@
 import React from 'react'
 import Gastado from './Gastado'
 
-const GastoLista= ({gastos}) =>{
+const GastoLista= ({gastos, setEditando}) =>{
   return (
     <div className='listado-gastos contenedor'>
         
@@ -10,7 +10,8 @@ const GastoLista= ({gastos}) =>{
         {gastos.map(gasto=> (
             <Gastado
             key={gasto.id}
-            gasto={gasto}          
+            gasto={gasto} 
+            setEditando={setEditando}         
         />
         ))}
 

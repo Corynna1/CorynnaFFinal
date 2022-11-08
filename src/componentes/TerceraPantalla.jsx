@@ -3,13 +3,21 @@ import cerrar from '../img/tacha.png'
 import { useState, useEffect } from 'react'
 import {Error} from './funciones'
 
-const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla, guardandoGastos}) => {
+const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla, guardandoGastos, editando}) => {
 
     //en los use state se guarda el valor de los inputs y su valor de inicio es vacio 
     const [error, setError] = useState('')
-    const [nombre, setNombreGasto]= useState('')
+    const [nombre, setNombre]= useState('')
     const [cantidad, setCantidad]= useState('')
     const [categoria, setCategoria]= useState('')
+
+    useEffect(()=>{//si const editando viene vacio es un registro nuevo, aqui no es necesario hacer forEach ya que con state se puede hacer 
+        if(Object.keys(editando).length>0){
+          setNombre(editando.nombre)
+          setCantidad(editando.cantidad)
+          setCategoria(editando.categoria)
+        }
+    },[])
 
    
     const cerrarPantalla=()=>{// al realizar click se regresara en .5s la animacion 
@@ -67,7 +75,7 @@ const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla,
                 placeholder='Añade El Nombre Del Gasto' 
                 id='nombre'
                 value={nombre}
-                onChange={e=> setNombreGasto(e.target.value)}/>
+                onChange={e=> setNombre(e.target.value)}/>
 
             </div>
 
@@ -99,7 +107,7 @@ const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla,
                 </select>
             </div>
 
-            <input type="submit" value='Agrega Gasto'/>
+            <input type="submit" value='Agregar'/>
 
         </form>
 

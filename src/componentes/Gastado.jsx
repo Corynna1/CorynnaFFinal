@@ -21,12 +21,12 @@ const icono = {
   otro: otroimg,
 };
 
-const Gastado = ({ gasto }) => {
+const Gastado = ({ gasto, setEditando }) => {
   const { categoria, nombre, fecha, id, cantidad } = gasto;
 
   const leadingActions=()=>(
     <LeadingActions>
-      <SwipeAction onClick={()=> console.log('editar...')}>
+      <SwipeAction onClick={()=> setEditando(gasto)}>
         Editar
       </SwipeAction>
     </LeadingActions>
