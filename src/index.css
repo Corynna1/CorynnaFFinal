@@ -1,13 +1,14 @@
 *,
 *:before,
 *:after {
-    box-sizing: inherit;
+    box-sizing:inherit;
     padding: 0;
     margin: 0;
 }
 
 html {
     font-size: 62.5%;
+    box-sizing: border-box;
 }
 
 body {
@@ -270,11 +271,11 @@ main {
 
 .contenido-gasto img {
     width: 10rem;
-    margin: 20px 20px 20px 20px;
+    margin: 20px 0 20px 10px;
 }
 
 .descripcion-gasto {
-    padding: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 100px;
     min-width: 500px;
    
 }
