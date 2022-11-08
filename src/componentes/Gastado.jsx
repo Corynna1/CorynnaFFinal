@@ -1,4 +1,5 @@
 import React from "react";
+import{LeadingActions, SwipeableList, SwipeableListItem, SwipeAction, TrailingActions }from 'react-swipeable-list' 
 import { formatoFecha } from "./funciones";
 import ahorroimg from "../img/ahorro2.png";
 import comidaimg from "../img/comida.png";
@@ -22,8 +23,21 @@ const icono = {
 const Gastado = ({ gasto }) => {
   const { categoria, nombre, fecha, id, cantidad } = gasto;
 
+  const leadingActions=()=>{
+    console.log('Editar...')
+  }
+
+  const trailingActions=()=>{
+    console.log('Eliminar...')
+  }
+
   return (
   
+    <SwipeableList>
+      <SwipeableListItem
+      leadingActions={leadingActions}
+      trailingActions={trailingActions}
+      >
         <div className="gasto">
           <div className="contenido-gasto">
             <img src={icono[categoria]} alt="" />
@@ -35,6 +49,8 @@ const Gastado = ({ gasto }) => {
             <p className="cantidad">${cantidad}</p>
           </div>
         </div>
+      </SwipeableListItem>
+    </SwipeableList>
   );
 };
 
