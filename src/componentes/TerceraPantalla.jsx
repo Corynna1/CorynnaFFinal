@@ -10,12 +10,14 @@ const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla,
     const [nombre, setNombre]= useState('')
     const [cantidad, setCantidad]= useState('')
     const [categoria, setCategoria]= useState('')
+    const [id, setId]=useState('')
 
     useEffect(()=>{//si const editando viene vacio es un registro nuevo, aqui no es necesario hacer forEach ya que con state se puede hacer 
         if(Object.keys(editando).length>0){
           setNombre(editando.nombre)
           setCantidad(editando.cantidad)
           setCategoria(editando.categoria)
+          setId(editando.id)
         }
     },[])
 
@@ -40,7 +42,7 @@ const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla,
             return
         } 
 
-        guardandoGastos({nombre, cantidad, categoria})//se crea un objeto// hay que tratar que ese guardado sea json
+        guardandoGastos({nombre, cantidad, categoria, id})//se crea un objeto// hay que tratar que ese guardado sea json
     }
 
 
@@ -62,7 +64,7 @@ const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla,
             <legend>
                 <span id='span1'></span>
                 <span id='span2'></span>
-             Nuevo Gasto</legend>
+             {editando.nombre? 'Editar Gastos': 'Nuevo Gasto'}</legend>
 
              {error && <Error>{error}</Error>}
             
@@ -107,7 +109,7 @@ const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla,
                 </select>
             </div>
 
-            <input type="submit" value='Agregar'/>
+            <input type="submit" value={editando.nombre? 'Guardar Cambios': 'Agregar'}/>
 
         </form>
 
