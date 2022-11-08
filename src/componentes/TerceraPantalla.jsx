@@ -3,7 +3,7 @@ import cerrar from '../img/tacha.png'
 import { useState, useEffect } from 'react'
 import {Error} from './funciones'
 
-const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla, guardandoGastos, editando}) => {
+const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla, guardandoGastos, editando, setEditando}) => {
 
     //en los use state se guarda el valor de los inputs y su valor de inicio es vacio 
     const [error, setError] = useState('')
@@ -11,6 +11,7 @@ const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla,
     const [cantidad, setCantidad]= useState('')
     const [categoria, setCategoria]= useState('')
     const [id, setId]=useState('')
+    const [fecha, setFecha]=useState('')
 
     useEffect(()=>{//si const editando viene vacio es un registro nuevo, aqui no es necesario hacer forEach ya que con state se puede hacer 
         if(Object.keys(editando).length>0){
@@ -18,12 +19,15 @@ const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla,
           setCantidad(editando.cantidad)
           setCategoria(editando.categoria)
           setId(editando.id)
+          setFecha(editando.fecha)
+
         }
     },[])
 
    
     const cerrarPantalla=()=>{// al realizar click se regresara en .5s la animacion 
         setCambioPantalla(false)
+        setEditando({})//se pone objeto vacio para que al momento de cerrar la pantalla este se resetea, se puede hacer cambios y al cargar se queda los inputs vacios
 
         setTimeout(()=>{
             setTerceraPantalla(false)
@@ -42,7 +46,7 @@ const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla,
             return
         } 
 
-        guardandoGastos({nombre, cantidad, categoria, id})//se crea un objeto// hay que tratar que ese guardado sea json
+        guardandoGastos({nombre, cantidad, categoria, id, fecha})//se crea un objeto// hay que tratar que ese guardado sea json
     }
 
 

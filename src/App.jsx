@@ -38,20 +38,23 @@ function App() {
     if(gasto.id){//Aqui se presgunta si hay gasto o no, para que al momento de editar no se cree un nuevo registro y se quede con el id anterior
       const actualizacionDeGastos=gastos.map(gastoState=> gastoState.id===gasto.id?gasto: gastoState)//se itera sobre el state, si el gastoStateid es igual al gastoid que se esta editando en el  parametro,retorname en el gasto que se esta editando y en caso contrario retorname lo que esta en el state, para que los demas campos sigan con la misma informacion si estas no se editan//esta funcion es para buscar con el id el que se esta modificando y los demas se siguen retornando igual porque no queremos que se pierda la informacion
       setGastos(actualizacionDeGastos);
+      setEditando({})// hace que al terminar de editar, al cerrar se limpien los datos del componente 
     } else{//nuevo gasto
       gasto.id = GastoId();
     gasto.fecha = Date.now();
     setGastos([...gastos, gasto]); //se crea una copia del arreglo que viene desde la tercera pantalla [nombreGastos, categoria, cantidad]
     }
 
-
-    
-
     setCambioPantalla(false);
     setTimeout(() => {
       setTerceraPantalla(false);
     }, 500);
   };
+
+  const deleteGasto=(id)=>{
+   const actualizacionDeGastosEliminados= gastos.filter(gasto=>gasto.id!==id)
+  setGastos(actualizacionDeGastosEliminados)
+  }
 
   return (
     <div>
@@ -67,10 +70,14 @@ function App() {
         <>
           <div>
             <GastoLista gastos={gastos}
-            setEditando={setEditando} />
+            setEditando={setEditando}
+            deleteGasto={deleteGasto} />
           </div>
+
           <div className="nuevo-gasto">
+
             <h3>Agregar Gasto</h3>
+
             <img
               src={iconoNG}
               alt="icono de nuevo gasto"
@@ -87,6 +94,7 @@ function App() {
           setCambioPantalla={setCambioPantalla}
           guardandoGastos={guardandoGastos}
           editando={editando}
+          setEditando={setEditando}
         />
       )}
     </div>

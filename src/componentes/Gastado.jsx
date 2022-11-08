@@ -21,7 +21,7 @@ const icono = {
   otro: otroimg,
 };
 
-const Gastado = ({ gasto, setEditando }) => {
+const Gastado = ({ gasto, setEditando, deleteGasto }) => {
   const { categoria, nombre, fecha, id, cantidad } = gasto;
 
   const leadingActions=()=>(
@@ -34,7 +34,8 @@ const Gastado = ({ gasto, setEditando }) => {
 
   const trailingActions=()=>(
     <TrailingActions>
-    <SwipeAction onClick={()=> console.log('eliminar...')}>
+    <SwipeAction onClick={()=> deleteGasto(id)}
+    >
       Eliminar
     </SwipeAction>
   </TrailingActions>
