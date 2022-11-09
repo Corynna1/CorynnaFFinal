@@ -48,7 +48,7 @@ const Gastado = ({ gasto, setEditando, deleteGasto }) => {
       leadingActions={leadingActions()}
       trailingActions={trailingActions()}
       >
-        <div className="gasto">
+        
           <div className="contenido-gasto">
             <img src={icono[categoria]} alt="" />
             <div className="descripcion-gasto">
@@ -58,7 +58,7 @@ const Gastado = ({ gasto, setEditando, deleteGasto }) => {
             </div>
             <p className="cantidad">${cantidad}</p>
           </div>
-        </div>
+        
       </SwipeableListItem>
     </SwipeableList>
   );

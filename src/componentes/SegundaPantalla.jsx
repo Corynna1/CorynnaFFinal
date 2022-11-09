@@ -33,8 +33,8 @@ setGastado(gastoTotal);
 
   
   return (
-    <div className="contenedor-presupuesto contenedor sombra dos-columnas">
-      <div>
+    <div className="contenedor-presupuesto contenedor sombra grafica-gastos">
+      <div className="grafica">
         <CircularProgressbar
         value={porcentajeGrafica}
         styles={buildStyles({

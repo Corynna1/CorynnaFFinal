@@ -51,8 +51,8 @@ const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla,
 
 
   return (
-    <div className='modal'>
-        <div className='cerrar-modal'>
+    <div className='terceraPantalla'>
+        <div className='cerrarImg'>
             <img
             src={cerrar}
             alt='boton de cerrar'
@@ -71,9 +71,7 @@ const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla,
              {editando.nombre? 'Editar Gastos': 'Nuevo Gasto'}</legend>
 
              {error && <Error>{error}</Error>}
-            
 
-            
 
             <div className='campo'>
                 <label htmlFor="nombre">Nombre Del Gasto</label>

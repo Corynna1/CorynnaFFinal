@@ -16,13 +16,32 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
-
+/*Se le agrega una imagen al header para que esta este de fondo*/
 header {
     background: url(./img/captura1.png);
-    background-size: cover;
+    background-size:cover;
+}
+
+
+/*style de imagen de fondo de header*/
+.imgh{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10rem;
+}
+/*se le da tamaño a la imagen de fondo de header*/
+.imgh img{
+    width: 150px;
+    height: 150px;
+    margin: 40px  40px;
+    padding-bottom: 40px;
+    text-align: center;
     
 }
 
+/*Se le asignan caracteristicas de h1 al titulo a Planificador de Gastos, esta aparece en las 2 pantallas principales*/
 header h1 {
     padding: 3rem 0;
     margin: 20px;
@@ -33,33 +52,39 @@ header h1 {
     text-shadow: 1px 2px rgb(148, 70, 212);
 }
 
-
-h2 {/*es la grafica*/
-    font-size: 3rem;
+.contenedor {
+    width: 90%;
+    max-width: 80rem;
+    margin: 0 auto;
 }
 
+/*Este contenedor tiene el mismas caracteristicas para el presupuesto inicial y donde se observa la grafica */
 .contenedor-presupuesto {
-    margin-top: -4rem;
+    margin-top: -2rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    transform: translateY(5rem);
+    justify-content: center;
+    transform: translateY(3rem);
     background-color: white;
-    padding: 3rem;
-    border-radius: 50px;
+    padding: 1rem;
+    border-radius: 20px;
     box-shadow: 1px 2px rgb(149, 152, 152);
+    min-width: 50rem;
+   
 }
 
+/*Aqui se le asignan estilos a presupuesto, gastado y disponible */
 .contenedor-presupuesto span{
     font-weight: 900;
     color:#7E57C2;
-    
+    font-size: 3rem;
 }
 
+/*este es un div que engloba los presupuestos, gastado y disponible sin la grafica, estan a mismo nivel que grafica y dentro de contenedor-presupuesto*/
 .contenido-presupuesto {
     width: 100%;
-    
 }
+
 .contenido-presupuesto p {
     font-weight: 400;
     color: #454444;
@@ -67,18 +92,13 @@ h2 {/*es la grafica*/
     text-align: center;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 750px) {
     .contenido-presupuesto p {
         text-align: left;
     }
 }
-.contenido-presupuesto p.negativo,
-.contenido-presupuesto p.negativo span {
-    color: red;
-}
 
-
-
+/*Se le da estilos a la validacion de error esta en funciones.jsx y se visualiza dentro de tercera pantalla o modal*/
 .error{
 
     background-color:  red;
@@ -90,12 +110,13 @@ h2 {/*es la grafica*/
     margin-bottom: 10px;
 }
 
+/*Son estilos del form que se visualiza en la tercera pantalla*/
 .formulario {
     width: 95%;
     margin: 0 auto;
     padding: 10rem 0;
 }
-@media (min-width: 768px) {
+@media (min-width: 800px) {
     .formulario {
         padding: 4rem 0;
         width: 60rem;
@@ -112,18 +133,17 @@ h2 {/*es la grafica*/
     border-bottom: 4px solid blueviolet;
 }
 
-
 .formulario .campo {
     display: grid;
     margin-bottom: 2rem;
 }
 
 .formulario label {
-    color: #651FFF;
     font-size: 2rem;
     margin-bottom: 2rem;
 }
 
+/*hace que los inputs tengan estilos, padding hace el ancho de los inputs igual al submit*/
 .formulario input[type="text"],
 .formulario input[type="number"] {
     background-color: white;
@@ -132,11 +152,13 @@ h2 {/*es la grafica*/
     flex: 1;
     font-size: 1.8rem;
 }
+
+/*Aqui se le da estilos al submit, hay efecto de iluminacion al hacer click al elemento submit*/
 .formulario input[type="submit"] {
     background:linear-gradient(90deg, transparent, blueviolet);
     padding: 1.8rem;
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 5rem;
     color: white;
     font-weight: 900;
     font-size: 1.9rem;
@@ -145,12 +167,14 @@ h2 {/*es la grafica*/
     border: 1px solid #7E57C2;
     border-radius: 10px;
 }
-@media (min-width: 768px) {
+/*hace que el tamaño del submit sea igual que los inputs*/
+@media (min-width: 750px) {
     .formulario input[type="submit"] {
         display: block;
-        padding: 1rem 5rem;
+        padding: 1rem 0;
     }
 }
+/*Se le da estilo con hover para el efecto de luminocidad*/
 .formulario input[type="submit"]:hover {
     background-color: #64B5F6;
     cursor: pointer;
@@ -159,6 +183,7 @@ h2 {/*es la grafica*/
     border: 1px solid rgb(246, 241, 241);
 }
 
+/*Se le da estilos al select de las categorias en tercerapantalla.jsx*/
 .formulario select {
     flex: 1;
     padding: 1rem;
@@ -167,105 +192,70 @@ h2 {/*es la grafica*/
     background-color: white;
 }
 
-
+/*clasname lo tiene presupuesto.jsx(en el div fuera de form), filtroGastos.jsx(tiene contenedor para darle estilos al select de filtro), gastolista.jsx tiene contenedor para los divs de los gastos*/
 .contenedor {
-    width: 90%;
-    max-width: 80rem;
+    width: 80%;
+    max-width: 70rem;
     margin: 0 auto;
 }
+/*se le asigna un clasname al div de grafica para no modificar el ancho de los demas contenedores*/
+.contenedor .grafica{
+    width: 20rem;
+    padding: 20px;
+}
 
-.dos-columnas {
+/*Se le asigna classname al div diferente para los estilos en modo columnas del los parrafos y el div de grafica */
+.grafica-gastos {
     flex-direction: column;
 }
-.dos-columnas :first-child {
+.grafica-gastos :first-child {
     margin-bottom: 4rem;
 }
 @media (min-width: 768px) {
-    .dos-columnas {
+    .grafica-gastos {
         flex-direction: row;
         align-items: center;
         gap: 4rem;
     }
-    .dos-columnas > div {
+    .grafica-gastos > div {
         width: 50%;
     }
-    .dos-columnas :first-child {
+    .grafica-gastos :first-child {
         margin-bottom: 0;
     }
 }
-.formulario input[type="text"].nuevo-presupuesto, 
-.formulario input[type="number"].nuevo-presupuesto {
-    font-size: 2.8rem;
-    text-align: center;
+/*estilo de grafica*/
+.CircularProgressbar .CircularProgressbar-text {
+    font-size: 1rem !important;
 }
 
-.reset-app {
-    border: none;
-    background-color: #db2777;
-    padding: 1rem;
+
+/*Se le da estilos a los div de los gastos que se creen*/
+.listado-gastos{
     width: 100%;
-    text-align: center;
-    color: var(--blanco);
-    text-transform: uppercase;
-    font-weight: 900;
-    border-radius: 1rem;
-    transition-property: background-color;
-    transition-duration: 300ms;
-}
-.reset-app:hover {
-    background-color: #c71465;
-    cursor: pointer;
+    display:grid;
+    justify-content: center;
+    
 }
 
-main {
-    padding-top: 10rem;
-}
-
-.filtros .campo {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
-.filtros label {
-    font-size: 3rem;
-    font-weight: 900;
-    color: rgb(72, 70, 70);
-}
-.filtros select {
-    flex: 1;
-    padding: 1rem;
-    border: none;
-    border-radius: 1rem;
-    text-align: center;
-    background-color: gray;
-}
-
-.listado-gastos {
-    margin-top: 5rem;
-}
 .listado-gastos h2 {
-    margin-top: 100px;
+    margin-top: 100px ;
+    margin-bottom: 20px;
     color: #7E57C2;
     font-weight: 900;
     text-align: center;
     
 }
 
-.gasto {
-    display: flex;
-    justify-content:space-around;
-    align-items:center;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    width: 100%;
-}
 
 .contenido-gasto {
     display: flex;
     align-items: center;
+    justify-content: center;
     border: 1px solid gray;
     border-radius: 20px;
     box-shadow: 1px 2px #5E35B1;
+    margin-bottom: 20px;
     
 }
 
@@ -305,7 +295,7 @@ main {
     color: #5E35B1;
     padding: 0 70px 0 0;
 }
-
+/*Estilos para el texto de agregar gasto en imagen*/
 .nuevo-gasto {
     position: fixed;
     top: 20px;
@@ -314,7 +304,7 @@ main {
     color: #42A5F5;
     text-shadow: 1px 2px rgb(29, 29, 29);
 }
-
+/*imagen de gasto nuevo*/
 .nuevo-gasto img {
     width: 5rem;
 }
@@ -322,7 +312,8 @@ main {
     cursor: pointer;
 }
 
-.modal {
+/*Se le da estilo al classname del modal div general de tercerpantalla.jsx */
+.terceraPantalla {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.92);
     top: 0;
@@ -330,18 +321,21 @@ main {
     right: 0;
     bottom: 0;
 }
-.modal .cerrar-modal {
+
+/*le da estilos a la x de cerrar*/
+.terceraPantalla .cerrarImg {
     position: absolute;
     right: 3rem;
     top: 3rem;
     width: 3rem;
     height: 3rem;
 }
-.modal .cerrar-modal img {
+/*imagen de x se le da estilo de anchura*/
+.terceraPantalla .cerrarImg img {
     width: 100%;
 }
-
-.modal .formulario {
+/*style para el formulario del modal*/
+.terceraPantalla .formulario {
     max-width: 80rem;
     width: 40rem;
     transition-property: all;
@@ -349,43 +343,27 @@ main {
     transition-timing-function: ease-in;
     opacity: 0;
 }
-.modal label {
-    color: rgb(218, 218, 218);
-}
-body .modal {
+
+body .terceraPantalla {
     overflow: hidden;
 }
 
-.modal .formulario.animar {
+.terceraPantalla .formulario.animar {
     position: relative;
     opacity: 1;
 }
 
-.modal .formulario.cerrar {
+.terceraPantalla .formulario.cerrar {
     opacity: 0;
 }
 
-.modal label {
+.terceraPantalla label {
     text-align: left;
+    color: white;
+    font-weight: 500;
 }
 
-.CircularProgressbar .CircularProgressbar-text {
-    font-size: 1rem !important;
-}
-
-
-.imgh{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.imgh img{
-    width: 300px;
-    height: 200px;
-    margin: 20px 150px 20px; 
-}
-
+/*estilos de swipeaction de editar*/
 .swipe-action__leading{
     background-color: #81C784;
     color: white;
@@ -393,7 +371,7 @@ body .modal {
     font-size: 3rem;
     border-radius: 20px;
 }
-
+/*swepeaction de eliminar*/
 .swipe-action__trailing{
     background-color: #E53935;
     color: white;
@@ -401,8 +379,66 @@ body .modal {
     font-size: 3rem;
     border-radius: 20px;
 }
+/*estilo en general de swipe*/
 .swipeable-list .swipe-action{
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
+/**/
+
+.filtros{
+    margin-top: 50px;
+}
+
+.filtros .campo {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.filtros label {
+    font-size: 3rem;
+    font-weight: 900;
+    color: black;
+}
+
+/*da estilos al select de filtro*/
+.filtros select {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    text-align: center;
+    background-color: rgb(153, 114, 200);
+}
+
+.reset-app {
+    border: none;
+    background-color: #db2777;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+    color: var(--blanco);
+    text-transform: uppercase;
+    font-weight: 900;
+    border-radius: 1rem;
+    transition-property: background-color;
+    transition-duration: 300ms;
+}
+.reset-app:hover {
+    background-color: #c71465;
+    cursor: pointer;
+}
+
+.contenido-presupuesto p.negativo,
+.contenido-presupuesto p.negativo span {
+    color: red;
+}
+
+
+.formulario input[type="text"].nuevo-presupuesto, 
+.formulario input[type="number"].nuevo-presupuesto {
+    font-size: 2.8rem;
+    text-align: center;
+}

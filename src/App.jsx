@@ -4,14 +4,20 @@ import iconoNG from "./img/agregar2.png";
 import TerceraPantalla from "./componentes/TerceraPantalla";
 import { GastoId } from "./componentes/funciones";
 import GastoLista from "./componentes/GastoLista";
+import FiltroGastos from "./componentes/FiltroGastos";
 
 function App() {
-  const [gastos, setGastos] = useState([]);
-  const [presupuesto, setPresupuesto] = useState(0);
+  const [gastos, setGastos] = useState(
+    localStorage.getItem('gastos')? JSON.parse(localStorage.getItem('gastos')):[]
+  );
+  const [presupuesto, setPresupuesto] = useState(Number(localStorage.getItem('presupuesto'))??0);
   const [valido, setValido] = useState(false);
   const [terceraPantalla, setTerceraPantalla] = useState(false);
   const [cambioPantalla, setCambioPantalla] = useState(false);
   const [editando, setEditando]=useState({})
+  const [filtroGasto, setFiltroGasto]=useState('')
+  const [resultadoFiltrado, setResultadoFiltrado]=useState([])
+  
 
 
   useEffect(()=>{
@@ -24,6 +30,31 @@ function App() {
     }
     }, [editando])//Al editar, usando useEffect se regresan los imputs a llenos cuando se clickea editar
 
+    useEffect(()=>{
+      localStorage.setItem('presupuesto', presupuesto ?? 0)
+    }, [presupuesto])
+
+    useEffect(()=>{
+      localStorage.setItem('gastos', JSON.stringify(gastos) ?? [])
+    }, [gastos])
+
+    useEffect(()=>{//se guarda en local storage el presupuesto
+      const presupuestoLS = Number (localStorage.getItem('presupuesto'))?? 0;
+
+      if(presupuestoLS>0){
+        setValido(true)
+      }
+    },[])
+
+    useEffect(()=>{//aqui se filtran los gastos cada que se seleccionan en el select y aparecen en la segunda pantalla
+      if(filtroGasto){
+        const filtrandoGastos= gastos.filter(gasto=>gasto.categoria===filtroGasto)
+        setResultadoFiltrado(filtrandoGastos)
+      }
+      
+    },[filtroGasto])
+
+   
 
   const nuevoGastoTP = () => {
     setTerceraPantalla(true); //se inicia en false para que cuando se clickee cambie a true y aparezca la tercera pantalla
@@ -68,10 +99,18 @@ function App() {
 
       {valido ? (
         <>
+
+        <FiltroGastos
+        filtroGasto={filtroGasto}
+        setFiltroGasto={setFiltroGasto}
+        >
+        </FiltroGastos>
           <div>
             <GastoLista gastos={gastos}
             setEditando={setEditando}
-            deleteGasto={deleteGasto} />
+            deleteGasto={deleteGasto}
+            filtroGasto={filtroGasto} 
+            resultadoFiltrado={resultadoFiltrado}/>
           </div>
 
           <div className="nuevo-gasto">
