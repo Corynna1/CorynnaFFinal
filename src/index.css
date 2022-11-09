@@ -430,15 +430,3 @@ body .terceraPantalla {
     background-color: #c71465;
     cursor: pointer;
 }
-
-.contenido-presupuesto p.negativo,
-.contenido-presupuesto p.negativo span {
-    color: red;
-}
-
-
-.formulario input[type="text"].nuevo-presupuesto, 
-.formulario input[type="number"].nuevo-presupuesto {
-    font-size: 2.8rem;
-    text-align: center;
-}

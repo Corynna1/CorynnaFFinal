@@ -16,6 +16,7 @@
     "react-swipe": "^6.0.4",
     "react-swipeable-list": "^1.6.0",
     "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.6.7",
     "swipe-js-iso": "^2.1.5"
   },
   "devDependencies": {

@@ -49,7 +49,6 @@ const TerceraPantalla = ({setTerceraPantalla, cambioPantalla, setCambioPantalla,
         guardandoGastos({nombre, cantidad, categoria, id, fecha})//se crea un objeto// hay que tratar que ese guardado sea json
     }
 
-
   return (
     <div className='terceraPantalla'>
         <div className='cerrarImg'>
