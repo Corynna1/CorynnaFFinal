@@ -15,7 +15,7 @@ const SegundaPantalla = ({ presupuesto, gastos, setGastos, setPresupuesto, setVa
   const [porcentajeGrafica, setPorcentajeGrafica] = useState(0);
 
   useEffect(() => {
-    const gastoTotal = gastos.reduce((acc, gasto) => gasto.cantidad + acc, 0);
+    const gastoTotal = gastos.reduce((acc, gasto) => gasto.cantidad + acc, 0);//se aplica un reduce para hacer el calculo de los gastos y en una sola linea
     const disponibleTotal = presupuesto - gastoTotal;
     //calcular porcentaje de la grafica
 
@@ -37,7 +37,7 @@ const SegundaPantalla = ({ presupuesto, gastos, setGastos, setPresupuesto, setVa
     }).format(number);
   }
 
-  const reiniciar=()=>{
+  const reiniciar=()=>{//funcion para aplicar el reseteo y que se elimine tambien de localStorage con [] y presupuesto en 0, se instala //npm install sweetalert2
     Swal.fire({
       title: '¿Estás segur@ que deseas resetear la App?',
       text: "Ya no podrás revertir esto!",
@@ -53,15 +53,15 @@ const SegundaPantalla = ({ presupuesto, gastos, setGastos, setPresupuesto, setVa
           'Tu has eliminado todo exitosamente.',
           'success'
         )
-        setGastos([]);
-        setPresupuesto(0);
-        setValido(false);
+        setGastos([]);//se reinicia en localStorage App.jsx
+        setPresupuesto(0);//se reinicia presupuesto App.jsx
+        setValido(false); //se pone en false para que al reiniciar la pagina se quede en la primera pagina 
         
-      } else {console.log('no')}
+      } else {console.log('no')}//buscar opcion para quitar, hay un error ya que se aplica el Swal 2 veces seguidas 
     })
   }
 
-
+//Se aplicaron estilos a la grafica, esta se importo from react en la pagina npm
   return (
     <div className="contenedor-presupuesto contenedor  grafica-gastos">
       <div className="grafica">
@@ -101,10 +101,10 @@ const SegundaPantalla = ({ presupuesto, gastos, setGastos, setPresupuesto, setVa
           {formatNumber(gastado)}
         </p>
 
-        <button className="reset-app"
+        <button className="reseteo"
         type="button"
         onClick={reiniciar}>
-          Reiniciar APP
+          Reiniciar
         </button>
       </div>
     </div>
@@ -112,3 +112,4 @@ const SegundaPantalla = ({ presupuesto, gastos, setGastos, setPresupuesto, setVa
 };
 
 export default SegundaPantalla;
+

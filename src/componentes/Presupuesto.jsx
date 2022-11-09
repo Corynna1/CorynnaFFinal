@@ -3,7 +3,7 @@ import swal from "sweetalert";
 
 const Presupuesto = ({ presupuesto, setPresupuesto, setValido }) => {
   
-  const validar = (e) => {
+  const validar = (e) => {//se valida si hay presupuesto y manda una alerta si no es un numero y si es valido te manda a la segundaPantalla.jsx
     e.preventDefault();
     if (
       !Number(presupuesto) ||
@@ -31,7 +31,6 @@ const Presupuesto = ({ presupuesto, setPresupuesto, setValido }) => {
             className="nuevo-presupuesto"
             type="text"
             placeholder="Añade tu presupuesto"
-            //value={//presupuesto}
             onChange={(e) => {
               setPresupuesto(e.target.value);
             }}

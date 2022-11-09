@@ -386,7 +386,7 @@ body .terceraPantalla {
     justify-content: center;
 }
 
-/**/
+/*se encuentra en filtro.jsx*/
 
 .filtros{
     margin-top: 50px;
@@ -412,21 +412,22 @@ body .terceraPantalla {
     text-align: center;
     background-color: rgb(153, 114, 200);
 }
-
-.reset-app {
-    border: none;
-    background-color: #db2777;
+/*estilos para el boton de resetear, se encuentra en segundapantalla.jsx*/
+.reseteo {
+    margin-top: 20px;
+    background:linear-gradient(90deg, transparent, blueviolet);
     padding: 1rem;
-    width: 100%;
+    width: 40%;
     text-align: center;
-    color: var(--blanco);
-    text-transform: uppercase;
-    font-weight: 900;
-    border-radius: 1rem;
-    transition-property: background-color;
-    transition-duration: 300ms;
+    color: white;
+    font-weight: 600;
+    border-radius: 60px;
+    border: 1px solid #7E57C2
 }
-.reset-app:hover {
-    background-color: #c71465;
+.reseteo:hover {
+    background-color: #64B5F6;
     cursor: pointer;
+    box-shadow: 0 0 10px #64B5F6, 0 0 20px #64B5F6, 0 0 20px #64B5F6;
+    transition-delay: 0.25s;
+    border: 1px solid rgb(246, 241, 241);
 }

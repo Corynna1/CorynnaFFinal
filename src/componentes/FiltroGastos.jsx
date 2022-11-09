@@ -1,8 +1,10 @@
-import {useState, useEffect} from 'react'
+import {React} from 'react'
 
 const FiltroGastos = ({filtroGasto, setFiltroGasto}) => {
+
+    /*Funcion pata filtrar los gastos por medio de id. Los props se encuentras en App.jsx donde se inicia en state vacio(''), posteriormente se hace filter para asi buscarlos por medio de gasto.categoria */
   return (
-    <div className='filtros sombras contenedor'>
+    <div className='filtros contenedor'>
         <form>
             <div className='campo'>
                 <label>Filtrar Gastos</label>

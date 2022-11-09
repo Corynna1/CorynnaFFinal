@@ -21,24 +21,24 @@ function App() {
 
 
   useEffect(()=>{
-    if(Object.keys(editando).length>0){//con Object.key te ayuda a validar si hay algo en los inputs
+    if(Object.keys(editando).length>0){//con Object.key te ayuda a validar si hay algo en los inputs, si es corecto te envia a la terceraPantalla.jsx con los datos a editar //Al editar, usando useEffect se regresan los imputs a llenos cuando se clickea editar
       setTerceraPantalla(true)
 
       setTimeout(() => {
         setCambioPantalla(true);
         }, 500);
     }
-    }, [editando])//Al editar, usando useEffect se regresan los imputs a llenos cuando se clickea editar
+    }, [editando])
 
-    useEffect(()=>{
+    useEffect(()=>{//aqui se asigna al localStorage lo que se ingresa a presupuesto y se pregunta si esta en 0 se queda igual
       localStorage.setItem('presupuesto', presupuesto ?? 0)
     }, [presupuesto])
 
-    useEffect(()=>{
+    useEffect(()=>{//aqui se asigna en localStorage si hay gastos si no hay se queda con arreglo vacio[]
       localStorage.setItem('gastos', JSON.stringify(gastos) ?? [])
     }, [gastos])
 
-    useEffect(()=>{//se guarda en local storage el presupuesto
+    useEffect(()=>{//se guarda en local storage el presupuesto, y se guarda con Number para que no afecte en las operaciones que se utilice presupuesto
       const presupuestoLS = Number (localStorage.getItem('presupuesto'))?? 0;
 
       if(presupuestoLS>0){
@@ -81,7 +81,7 @@ function App() {
       setTerceraPantalla(false);
     }, 500);
   };
-
+//funcion de eliminacion de gasto por medio de filter y id de gasto, tambien al eliminar gasto, la lista se actualice
   const deleteGasto=(id)=>{
    const actualizacionDeGastosEliminados= gastos.filter(gasto=>gasto.id!==id)
   setGastos(actualizacionDeGastosEliminados)
